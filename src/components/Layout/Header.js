@@ -111,7 +111,8 @@ function Header(props) {
                 Logout
               </NavLink>
             )}
-
+          </div>
+          <div className="cart-btn">
             <HeaderCartButton onClick={props.onShow} />
           </div>
         </ul>

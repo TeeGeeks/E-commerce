@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.35114f13.chunk.css",
+    "main.js": "/static/js/main.69d671af.chunk.js",
+    "main.js.map": "/static/js/main.69d671af.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.d966abd0.js",
+    "runtime-main.js.map": "/static/js/runtime-main.d966abd0.js.map",
+    "static/css/2.f4c56af9.chunk.css": "/static/css/2.f4c56af9.chunk.css",
+    "static/js/2.0902fb15.chunk.js": "/static/js/2.0902fb15.chunk.js",
+    "static/js/2.0902fb15.chunk.js.map": "/static/js/2.0902fb15.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.f4c56af9.chunk.css.map": "/static/css/2.f4c56af9.chunk.css.map",
+    "static/css/main.35114f13.chunk.css.map": "/static/css/main.35114f13.chunk.css.map",
+    "static/js/2.0902fb15.chunk.js.LICENSE.txt": "/static/js/2.0902fb15.chunk.js.LICENSE.txt",
+    "static/media/horticulture.18d27574.jpg": "/static/media/horticulture.18d27574.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d966abd0.js",
+    "static/css/2.f4c56af9.chunk.css",
+    "static/js/2.0902fb15.chunk.js",
+    "static/css/main.35114f13.chunk.css",
+    "static/js/main.69d671af.chunk.js"
+  ]
+}

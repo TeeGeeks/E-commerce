@@ -1,6 +1,7 @@
 .navbar {
   background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
   height: 80px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -82,6 +83,10 @@
   align-items: center;
 }
 
+.cart-btn {
+  margin-bottom: 15px;
+}
+
 @media screen and (max-width: 960px) {
   .NavbarItems {
     position: relative;
@@ -90,8 +95,8 @@
   .nav-menu {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 90vh;
+    width: 50%;
+    height: 60vh;
     position: absolute;
     top: 80px;
     left: -100%;
@@ -108,11 +113,10 @@
   }
 
   .nav-links {
-    text-align: center;
-    padding: 2rem;
+    padding: 0.5rem;
     width: 100%;
-    display: table;
-    font-size: 16px;
+    /* display: table; */
+    font-size: 18px;
   }
 
   .nav-links:hover {
@@ -121,17 +125,17 @@
   }
 
   .navbar-logo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(25%, 50%);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
   }
 
   .menu-icon {
     display: block;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 5px;
+    left: 40px;
     transform: translate(-100%, 60%);
     font-size: 1.5rem;
     cursor: pointer;
@@ -160,6 +164,10 @@
     color: #1888ff;
     transition: 250ms;
   }
+
+  .nav-item-button {
+    display: block;
+  }
 }
 
 .nav-item-button {
@@ -175,4 +183,8 @@
   margin-right: 0.3rem;
   display: flex;
   justify-content: center;
+}
+
+.cart-btn {
+  margin-top: 20px;
 }

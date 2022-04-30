@@ -15,6 +15,7 @@ import { toast } from "react-toastify";
 export default function Login(props) {
   const [error, setError] = useState(false);
   const [open, setOpen] = React.useState(false);
+  const [loading, setLoading] = useState(false);
 
   const { dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -45,6 +46,7 @@ export default function Login(props) {
 
   const formHandler = (e) => {
     e.preventDefault();
+    setLoading(true);
 
     if (!formIsValid) {
       return;
@@ -66,6 +68,7 @@ export default function Login(props) {
         toast.error("Please enter a valid email or password", {
           position: "bottom-left",
         });
+        setLoading(false);
         // ..
       });
 
@@ -123,7 +126,7 @@ export default function Login(props) {
             )}
           </div>
           <Buttons className={classes.btn} disabled={!formIsValid}>
-            Register
+            {loading && <i className="fa fa-refresh fa-spin" />}Register
           </Buttons>
           {error ? (
             <span className="error-text">

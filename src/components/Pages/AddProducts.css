@@ -20,6 +20,19 @@
   width: 25rem;
 }
 
+@media (max-width: 768px) {
+  .control label,
+  .control input,
+  .control textarea {
+    font-weight: bold;
+    /* margin: 0.4rem 0.3rem; */
+    margin: 0.5rem 0;
+    display: inline-block;
+    font: inherit;
+    width: 15rem;
+  }
+}
+
 .control label {
   color: #fff;
 }

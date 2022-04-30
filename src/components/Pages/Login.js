@@ -9,9 +9,11 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebaseConfig/Firebase";
 import { AuthContext } from "../../store/auth-context";
 import { Form, Alert } from "react-bootstrap";
+import { CircularProgress } from "@mui/material";
 
 export default function Login() {
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const { dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -42,6 +44,7 @@ export default function Login() {
   const formHandler = (e) => {
     e.preventDefault();
     setError("");
+    setLoading(true);
 
     if (!formIsValid) {
       return;
@@ -50,6 +53,7 @@ export default function Login() {
     signInWithEmailAndPassword(auth, enteredEmail, enteredPassword)
       .then((userCredential) => {
         // Signed in
+
         const user = userCredential.user;
         // ...
         dispatch({ type: "LOGIN", payload: user });
@@ -57,6 +61,7 @@ export default function Login() {
       })
       .catch((error) => {
         setError(error.message);
+        setLoading(false);
       });
 
     resetEmailInput();
@@ -105,6 +110,7 @@ export default function Login() {
             )}
           </div>
           <Buttons className={classes.btn} disabled={!formIsValid}>
+            {loading && <i className="fa fa-refresh fa-spin" />}
             Login
           </Buttons>
 

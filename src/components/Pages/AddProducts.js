@@ -13,6 +13,7 @@ import { toast } from "react-toastify";
 export default function AddProducts(props) {
   const [images, setImages] = useState(null);
   const [progress, setProgress] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -57,6 +58,7 @@ export default function AddProducts(props) {
 
   const formHandler = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     if (!formIsValid) {
       return;
@@ -91,6 +93,7 @@ export default function AddProducts(props) {
         toast.error("Error adding product", {
           position: "bottom-left",
         }),
+
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
           if (url) {
@@ -202,7 +205,9 @@ export default function AddProducts(props) {
             )}
 
             <div className="product-btn">
-              <Buttons disabled={!formIsValid}>Post</Buttons>
+              <Buttons disabled={!formIsValid}>
+                {loading && <i className="fa fa-refresh fa-spin" />}Post
+              </Buttons>
             </div>
           </div>
         </form>

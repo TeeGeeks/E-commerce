@@ -69,7 +69,6 @@ export default function ContactUs() {
 
   const formHandler = async (e) => {
     e.preventDefault();
-
     setOpen(true);
 
     if (!formIsValid) {

@@ -5,9 +5,24 @@
   align-items: center;
   width: 400px;
   height: 500px;
-  margin: 2rem auto;
+  margin: auto;
+  margin-top: 100px;
   border-radius: 1rem;
   font-family: inherit;
+  /* background-color: grey; */
+}
+
+@media screen and (max-width: 300px) {
+  .login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 1rem;
+    font-family: inherit;
+  }
 }
 
 .loginTitle {
@@ -17,14 +32,19 @@
 }
 
 .loginForm {
-  margin-top: 20px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  width: 70%;
 }
 
 .loginForm > label {
   margin: 10px 0;
   font-weight: bold;
+}
+
+.loginForm > input {
+  width: 100px;
 }
 
 .loginInput {
