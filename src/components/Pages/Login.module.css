@@ -1,0 +1,52 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 500px;
+  margin: 2rem auto;
+  border-radius: 1rem;
+  font-family: inherit;
+}
+
+.loginTitle {
+  font-size: 50px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.loginForm {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginForm > label {
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.loginInput {
+  padding: 10px;
+  background-color: #fff;
+  border: none;
+  font-size: 16px;
+  font-weight: 400px;
+}
+
+.btn {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.links {
+  color: #fff;
+}
+
+.error_span {
+  font-size: 12px;
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}

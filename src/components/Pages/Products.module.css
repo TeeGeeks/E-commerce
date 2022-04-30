@@ -1,0 +1,92 @@
+.form {
+  margin: auto;
+  /* background-color: gray; */
+  width: 50%;
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+.form h3 {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #ccc;
+  margin-bottom: 40px;
+}
+
+/* .control input,
+.control label {
+  margin: 0.25rem auto;
+} */
+
+.control label,
+.control input {
+  font-weight: bold;
+
+  margin: 0.4rem 0.3rem;
+  display: inline-block;
+  font: inherit;
+
+  width: 25rem;
+}
+
+.control label {
+  color: #fff;
+}
+
+.control input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-width: 100%;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: bold;
+  height: 40px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.actions {
+  font: inherit;
+  cursor: pointer;
+  background-color: #1888ff;
+  border: 1px solid grey;
+  padding: 0.2rem 1rem;
+  border-radius: 25px;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.actions:hover,
+.actions:active {
+  background-color: inherit;
+}
+
+.invalid label {
+  color: #ca3e51;
+}
+
+.invalid input {
+  border-color: #aa0b20;
+  border: 2px solid #ca3e51;
+  background-color: white;
+}
+
+.error-text {
+  color: red;
+}
+
+button:disabled,
+button:disabled:active,
+button:disabled:hover {
+  background-color: silver;
+  color: #292929;
+  border-color: #ccc;
+  cursor: not-allowed;
+}

@@ -1,0 +1,80 @@
+.product {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.meal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin: 0 auto auto 0;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  height: 85%;
+}
+
+.mealImg {
+  height: 120px;
+  width: 100%;
+  margin-bottom: 3px;
+  border-radius: 3px;
+  object-fit: cover;
+  z-index: 1;
+  margin-right: 0.6rem;
+}
+
+.price {
+  margin-top: 0.25rem;
+  font-weight: bold;
+
+  font-size: 1.15rem;
+}
+
+.description {
+  font-style: italic;
+}
+
+.deletePost {
+  border: none;
+  color: rgb(199, 103, 103);
+  background: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+/* .meal h3 {
+  margin: 0 0 0.25rem 0;
+  color: #fff;
+}
+
+
+@media (max-width: 768px) {
+  .meal {
+    display: block;
+  }
+} */
+
+.button_icon_add {
+  font: inherit;
+  cursor: pointer;
+  background-color: #1888ff;
+  border: 1px solid #1888ff;
+  color: white;
+  padding: 0.15rem 0.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.button_icon_delete {
+  background-color: lightcoral;
+  border: 1px solid lightcoral;
+  color: white;
+  padding: 0.15rem 0.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font: inherit;
+  cursor: pointer;
+  margin-left: 3px;
+}

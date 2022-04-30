@@ -1,0 +1,105 @@
+.product-container {
+  width: 50%;
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+.product-container label {
+  font-weight: bold;
+  color: lightgrey;
+  font-family: "Oxygen", sans-serif;
+}
+
+.control label,
+.control input,
+.control textarea {
+  font-weight: bold;
+  margin: 0.4rem 0.3rem;
+  display: inline-block;
+  font: inherit;
+  width: 25rem;
+}
+
+.control label {
+  color: #fff;
+}
+
+.control input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-width: 100%;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: bold;
+  height: 40px;
+}
+
+.product-btn {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.product-container {
+  margin-top: 2rem;
+  margin-left: 5rem;
+}
+
+/* .product-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+} */
+
+.span {
+  color: #fff;
+  margin-left: 1rem;
+}
+
+.icon {
+  color: lightcoral;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.product-image {
+  border-radius: 10%;
+  max-width: 30%;
+  width: 200px;
+  height: 200px;
+  border-radius: 20%;
+  object-fit: cover;
+  color: gray;
+  margin-left: 5rem;
+}
+
+.settingsPP {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.invalid label {
+  color: #ca3e51;
+}
+
+.invalid input {
+  border-color: #aa0b20;
+  border: 2px solid #ca3e51;
+  background-color: white;
+}
+
+.error-text {
+  color: red;
+}
+
+button:disabled,
+button:disabled:active,
+button:disabled:hover {
+  background-color: silver;
+  color: #292929;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
