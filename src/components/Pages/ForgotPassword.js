@@ -1,17 +1,13 @@
 import React, { useContext } from "react";
 import classes from "./ForgotPassword.module.css";
 import { Fragment } from "react";
-import Header from "../Layout/Header";
 import useValidate from "../../hooks/use-validate";
 import Buttons from "../Layout/Buttons";
-import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../store/auth-context";
 import { toast } from "react-toastify";
 
 export default function Login(props) {
-  const navigate = useNavigate();
   const { forgotPassword } = useContext(AuthContext);
-  const [loading, setLoading] = React.useState(false);
 
   const {
     value: enteredEmail,
@@ -30,7 +26,6 @@ export default function Login(props) {
 
   const formHandler = async (e) => {
     e.preventDefault();
-    setLoading(true);
 
     if (!formIsValid) {
       return;
@@ -49,7 +44,6 @@ export default function Login(props) {
         toast.error("Email is invalid", {
           position: "bottom-left",
         });
-        setLoading(false);
       });
   };
 
@@ -57,7 +51,6 @@ export default function Login(props) {
 
   return (
     <Fragment>
-      <Header />
       <div className={classes.login}>
         <span className={classes.loginTitle}>Retrieve your password</span>
         <form className={classes.loginForm} onSubmit={formHandler}>

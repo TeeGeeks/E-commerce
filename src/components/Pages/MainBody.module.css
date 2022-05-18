@@ -1,15 +1,27 @@
-.main_image {
-  width: 100%;
-  height: 25rem;
-  z-index: -10;
-  overflow: hidden;
+.bg {
+  background-image: url("../../assets/cart-background.png");
+  height: 100vh;
+  position: relative;
+  width: 100vw;
+  padding: 10px;
+  background-repeat: no-repeat;
+  background-position: center top 40%;
+  background-size: cover;
+  margin-bottom: 40px;
 }
 
-.main_image img {
-  width: 110%;
-  height: 100%;
-  object-fit: cover;
-  transform: rotateZ(-5deg) translateY(-4rem) translateX(-1rem);
+.bg .text {
+  color: white;
+  text-align: center;
+  position: absolute;
+  top: 20%;
+  right: 40%;
+  left: 3%;
+}
+
+.bg .text h1,
+.bg .text p {
+  font-weight: bolder;
 }
 
 .carousel {

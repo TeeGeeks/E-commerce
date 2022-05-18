@@ -2,14 +2,12 @@ import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import classes from "./Login.module.css";
 import { Fragment } from "react";
-import Header from "../Layout/Header";
 import useValidate from "../../hooks/use-validate";
 import Buttons from "../Layout/Buttons";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebaseConfig/Firebase";
 import { AuthContext } from "../../store/auth-context";
 import { Form, Alert } from "react-bootstrap";
-import { CircularProgress } from "@mui/material";
 
 export default function Login() {
   const [error, setError] = useState("");
@@ -55,9 +53,11 @@ export default function Login() {
         // Signed in
 
         const user = userCredential.user;
+
         // ...
         dispatch({ type: "LOGIN", payload: user });
         navigate("/");
+        window.location.reload(false);
       })
       .catch((error) => {
         setError(error.message);
@@ -74,7 +74,6 @@ export default function Login() {
 
   return (
     <Fragment>
-      <Header />
       <div className={classes.login}>
         <span className={classes.loginTitle}>Login</span>
         {error && <Alert variant="danger">{error}</Alert>}

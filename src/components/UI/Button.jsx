@@ -2,10 +2,12 @@ import CartIcon from "../Carts/CartIcon";
 import React, { useContext, useEffect, useState } from "react";
 import classes from "./Button.module.css";
 import CartContext from "../../store/cart-context";
+import { AuthContext } from "../../store/auth-context";
 
 const HeaderCartButton = (props) => {
   const [buttonHighlighted, setButtonHighlighted] = useState(false);
   const ctx = useContext(CartContext);
+  const { showCartHandler } = useContext(AuthContext);
 
   const numberOfCartItems = ctx.items.reduce((current, item) => {
     return current + item.amount;
@@ -32,7 +34,7 @@ const HeaderCartButton = (props) => {
   }, [items]);
 
   return (
-    <button className={btnClasses} onClick={props.onClick}>
+    <button className={btnClasses} onClick={showCartHandler}>
       <span className={classes.icon}>
         <CartIcon />
       </span>

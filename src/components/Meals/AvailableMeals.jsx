@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import MealItem from "./MealItem/MealItem";
-import Card from "../UI/Card";
-
 import classes from "./Available.module.css";
-import CircularProgress from "@mui/material/CircularProgress";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebaseConfig/Firebase";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
@@ -27,11 +25,11 @@ const AvailableMeals = () => {
         loadedMeals.push({
           id: data[key].id,
           postId: data[key].author.id,
+          productId: data[key].productId,
           images: data[key].imageUrl,
           name: data[key].name,
           description: data[key].productDesc,
           price: data[key].productPrice,
-          // fastDelivery: data[key].fastDelivery,
         });
       }
       setMeals(loadedMeals);
@@ -47,8 +45,11 @@ const AvailableMeals = () => {
   if (loading) {
     return (
       <section className={classes.meals_loading}>
-        <CircularProgress disableShrink className={classes.loading_spinner} />
-        <p>Loading Products...</p>
+        <div className="centered">
+          <LoadingSpinner />
+          <p>Loading Products...</p>
+        </div>
+        {/* <CircularProgress disableShrink className={classes.loading_spinner} /> */}
       </section>
     );
   }
@@ -75,11 +76,11 @@ const AvailableMeals = () => {
   ));
 
   return (
-    <Card className={classes.home}>
+    <div className={classes.home}>
       <section className={classes.meals}>
         <ul className={classes.mealsList}>{mealsList}</ul>
       </section>
-    </Card>
+    </div>
   );
 };
 

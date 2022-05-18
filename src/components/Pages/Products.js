@@ -1,9 +1,20 @@
 import classes from "./Products.module.css";
-import Header from "../Layout/Header";
 import useValidate from "../../hooks/use-validate";
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { db } from "../../firebaseConfig/Firebase";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import CartContext from "../../store/cart-context";
+import { AuthContext } from "../../store/auth-context";
+import Cart from "../Carts/Cart";
 
 const Products = (props) => {
+  const navigate = useNavigate();
+
+  const cartCtx = useContext(CartContext);
+  const { hideCartHandler, cartIsShown } = useContext(AuthContext);
+
   const {
     value: enteredName,
     hasError: nameHasErr,
@@ -58,12 +69,23 @@ const Products = (props) => {
     postalCodeReset();
     cityReset();
 
-    // props.onSendOrder({
-    //   name: enteredName,
-    //   street: enteredStreet,
-    //   city: enteredCity,
-    //   postalCode: enteredPostalCode,
-    // });
+    const orderSent = {
+      name: enteredName,
+      street: enteredStreet,
+      city: enteredCity,
+      postalCode: enteredPostalCode,
+      timeStamp: serverTimestamp(),
+    };
+
+    addDoc(collection(db, "orders"), {
+      itemsSent: cartCtx.items,
+      orderDetails: orderSent,
+    });
+    toast.success("Your order has been sent successfully", {
+      position: "bottom-left",
+    });
+    cartCtx.clearItem();
+    navigate("/");
   };
 
   const nameInputClasses = nameHasErr
@@ -84,7 +106,7 @@ const Products = (props) => {
 
   return (
     <Fragment>
-      <Header />
+      {cartIsShown && <Cart onClose={hideCartHandler} />}
       <form className={classes.form} onSubmit={confirmHandler}>
         <h3>Order Products</h3>
         <div className={nameInputClasses}>

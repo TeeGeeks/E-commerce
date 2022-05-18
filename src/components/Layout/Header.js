@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState, useCallback } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 import HeaderCartButton from "../UI/Button";
@@ -13,21 +13,13 @@ function Header(props) {
 
   const navigate = useNavigate();
 
-  const signUserOut = () => {
+  const signUserOut = useCallback(() => {
     signOut(auth).then(() => {
       localStorage.clear();
       navigate("/sign-in");
-      // window.location.pathname = "/sign-in";
+      window.location.reload(false);
     });
-  };
-
-  // const signUserOut = () => {
-  //   signOut(auth).then(() => {
-  //     localStorage.clear();
-  //     navigate("/sign-in");
-  //     // window.location.pathname = "/sign-in";
-  //   });
-  // };
+  }, [navigate]);
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -113,7 +105,7 @@ function Header(props) {
             )}
           </div>
           <div className="cart-btn">
-            <HeaderCartButton onClick={props.onShow} />
+            <HeaderCartButton />
           </div>
         </ul>
       </nav>

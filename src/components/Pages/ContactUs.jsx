@@ -2,7 +2,6 @@ import React from "react";
 import { Fragment } from "react";
 import useValidate from "../../hooks/use-validate";
 import Buttons from "../Layout/Buttons";
-import Header from "../Layout/Header";
 import "./ContactUs.css";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../../firebaseConfig/Firebase";
@@ -107,7 +106,6 @@ export default function ContactUs() {
 
   return (
     <Fragment>
-      <Header />
       <div className="product-container">
         <h3>Contact Us</h3>
         <form className="contact-us" onSubmit={formHandler}>

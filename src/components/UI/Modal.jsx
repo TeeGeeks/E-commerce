@@ -1,5 +1,6 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
 import ReactDOM from "react-dom";
+import { AuthContext } from "../../store/auth-context";
 import classes from "./Modal.module.css";
 
 export const Backdrop = (props) => {
@@ -15,10 +16,11 @@ export const ModalOverlay = (props) => {
 };
 
 function Modal(props) {
+  const { hideCartHandler } = useContext(AuthContext);
   return (
     <Fragment>
       {ReactDOM.createPortal(
-        <Backdrop onHideCart={props.onHideCart} />,
+        <Backdrop onHideCart={hideCartHandler} />,
         document.getElementById("backdrop")
       )}
       {ReactDOM.createPortal(

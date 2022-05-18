@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import classes from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
 import { Fragment } from "react";
-import Header from "../Layout/Header";
 import useValidate from "../../hooks/use-validate";
 import Buttons from "../Layout/Buttons";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -56,6 +55,7 @@ export default function Login(props) {
       .then((userCredential) => {
         // Signed in
         const register = userCredential.user;
+        console.log(register);
         toast.success("Your account has been successfully registered", {
           position: "bottom-left",
         });
@@ -90,7 +90,6 @@ export default function Login(props) {
 
   return (
     <Fragment>
-      <Header />
       <div className={classes.login}>
         <span className={classes.loginTitle}>Register</span>
 

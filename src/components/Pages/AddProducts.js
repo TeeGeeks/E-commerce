@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Buttons from "../Layout/Buttons";
 import "./AddProducts.css";
-import Header from "../Layout/Header";
 import useValidate from "../../hooks/use-validate";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { auth, db, storage } from "../../firebaseConfig/Firebase";
@@ -9,11 +8,14 @@ import { ref, uploadBytesResumable, getDownloadURL } from "@firebase/storage";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { AuthContext } from "../../store/auth-context";
+import Cart from "../Carts/Cart";
 
 export default function AddProducts(props) {
   const [images, setImages] = useState(null);
   const [progress, setProgress] = useState(0);
   const [loading, setLoading] = useState(false);
+  const { hideCartHandler, cartIsShown } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -126,7 +128,7 @@ export default function AddProducts(props) {
 
   return (
     <>
-      <Header />
+      {cartIsShown && <Cart onClose={hideCartHandler} />}
       <div>
         <form onSubmit={formHandler}>
           <div className="settingsPP">

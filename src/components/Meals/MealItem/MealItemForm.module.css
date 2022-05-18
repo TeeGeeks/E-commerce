@@ -1,7 +1,7 @@
-/* .form {
+.form {
   display: flex;
   color: #fff;
-} */
+}
 
 .button_icon_add {
   font: inherit;
@@ -12,6 +12,8 @@
   padding: 4px 4px;
   border-radius: 8px;
   font-weight: bold;
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
 
 /* .form button:hover,

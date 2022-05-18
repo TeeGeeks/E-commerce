@@ -1,9 +1,21 @@
 import React, { useReducer } from "react";
 import CartContext from "./cart-context";
 
+const cartFromStorage = localStorage.getItem("cart")
+  ? JSON.parse(localStorage.getItem("cart"))
+  : [];
+const cartTAFromStorage = localStorage.getItem("totalAmount")
+  ? JSON.parse(localStorage.getItem("totalAmount"))
+  : 0;
+
+const storeCartItems = (items) => {
+  const cart = items.length > 0 ? items : [];
+  localStorage.setItem("cart", JSON.stringify(cart));
+};
+
 const defaultCartState = {
-  items: [],
-  totalAmount: 0,
+  items: cartFromStorage,
+  totalAmount: cartTAFromStorage,
 };
 
 const cartReducer = (state, action) => {
@@ -28,6 +40,8 @@ const cartReducer = (state, action) => {
     }
     const updatedTotalAmount =
       state.totalAmount + action.item.price * action.item.amount;
+    storeCartItems(updatedItemsCart);
+    localStorage.setItem("totalAmount", JSON.stringify(updatedTotalAmount));
     return {
       items: updatedItemsCart,
       totalAmount: updatedTotalAmount,
@@ -50,12 +64,16 @@ const cartReducer = (state, action) => {
       updatedItems = [...state.items];
       updatedItems[existingCartItemIndex] = updatedItem;
     }
+    storeCartItems(updatedItems);
+    localStorage.setItem("totalAmount", JSON.stringify(updatedTotalAmount));
     return {
       items: updatedItems,
       totalAmount: updatedTotalAmount,
     };
   }
   if (action.type === "CLEAR_ITEM") {
+    localStorage.removeItem("cart");
+    localStorage.removeItem("totalAmount");
     return defaultCartState;
   }
   return defaultCartState;
@@ -66,6 +84,8 @@ function CartProvider(props) {
     cartReducer,
     defaultCartState
   );
+
+  // storeCartItems(cartState.items);
 
   const addItemHandler = (item) => {
     dispatchCartState({ type: "ADD_ITEM", item: item });
@@ -82,6 +102,7 @@ function CartProvider(props) {
   const cartContext = {
     items: cartState.items,
     totalAmount: cartState.totalAmount,
+    cartItems: cartState.cartItems,
     addItem: addItemHandler,
     removeItem: removeItemHandler,
     clearItem: clearItemHandler,

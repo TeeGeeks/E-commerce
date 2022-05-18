@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Fragment } from "react";
-import Header from "../Layout/Header";
 import useValidate from "../../hooks/use-validate";
 import Buttons from "../Layout/Buttons";
 import classes from "./Register.module.css";
@@ -62,7 +61,6 @@ export default function Login(props) {
 
   return (
     <Fragment>
-      <Header />
       <div className={classes.login}>
         <span className={classes.loginTitle}>Reset Password</span>
 
